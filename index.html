@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aniversário da Carol</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Você está convidado!</h1>
+        <p>Estou comemorando meu aniversário no próximo domingo e adoraria que você estivesse lá!</p>
+        <p><strong>Data:</strong> 04/08/2024</p>
+        <p><strong>Hora:</strong> 13:30</p>
+        <p><strong>Local:</strong> Avenida dos signos, 569</p>
+        <form id="rsvpForm" style="display:none;">
+            <label for="name">Seu Nome:</label>
+            <input type="text" id="name" name="name" required>
+            <button type="yesButton">Confirmar Presença</button>
+        </form>
+
+        <div class="button-container">
+            <button id="yesButton">Confirmar Presença</button>
+            <button id="noButton">Não Posso Ir</button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
