@@ -28,37 +28,36 @@ document.getElementById('noButton').addEventListener('mouseover', function() {
     moveButtonRandomly();
 });
 
+// Definição da função
+function moveButtonRandomly() {
+    const noButton = document.getElementById('noButton');
+    const body = document.body;
+
+    // Obter as dimensões da tela
+    const maxX = body.clientWidth - noButton.offsetWidth;
+    const maxY = body.clientHeight - noButton.offsetHeight;
+
+    // Gerar posição aleatória
+    const randomX = Math.floor(Math.random() * maxX);
+    const randomY = Math.floor(Math.random() * maxY);
+
+    // Atualizar a posição do botão
+    noButton.style.left = randomX + 'px';
+    noButton.style.top = randomY + 'px';
+
+    console.log(`Moved to: ${randomX}, ${randomY}`);
+}
+
 document.addEventListener("DOMContentLoaded", function() {
-    function moveButtonRandomly() {
-        const noButton = document.getElementById('noButton');
-        const body = document.body;
-
-        // Obter as dimensões da tela
-        const maxX = body.clientWidth - noButton.offsetWidth;
-        const maxY = body.clientHeight - noButton.offsetHeight;
-
-        // Gerar posição aleatória
-        const randomX = Math.floor(Math.random() * maxX);
-        const randomY = Math.floor(Math.random() * maxY);
-
-        // Atualizar a posição do botão
-        noButton.style.left = randomX + 'px';
-        noButton.style.top = randomY + 'px';
-    }
-
     // Mover o botão ao carregar a página
     moveButtonRandomly();
 
     // Mover o botão quando a janela for redimensionada
-    window.addEventListener('resize', function() {
-        moveButtonRandomly();
-    });
+    window.addEventListener('resize', moveButtonRandomly);
 
     // Mover o botão a cada 2 segundos
     setInterval(moveButtonRandomly, 2000); // 2000 milissegundos = 2 segundos
 
     // Mover o botão ao passar o mouse sobre ele
-    document.getElementById('noButton').addEventListener('mouseover', function() {
-        moveButtonRandomly();
-    });
+    document.getElementById('noButton').addEventListener('mouseover', moveButtonRandomly);
 });
