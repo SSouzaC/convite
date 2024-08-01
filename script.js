@@ -46,9 +46,19 @@ document.addEventListener("DOMContentLoaded", function() {
         noButton.style.top = randomY + 'px';
     }
 
-    moveButtonRandomly(); // Mover o botão ao carregar a página
+    // Mover o botão ao carregar a página
+    moveButtonRandomly();
 
+    // Mover o botão quando a janela for redimensionada
     window.addEventListener('resize', function() {
-        setTimeout(moveButtonRandomly, 100); // Adiciona um pequeno atraso para garantir que o botão se ajuste após o redimensionamento
+        moveButtonRandomly();
+    });
+
+    // Mover o botão a cada 2 segundos
+    setInterval(moveButtonRandomly, 2000); // 2000 milissegundos = 2 segundos
+
+    // Mover o botão ao passar o mouse sobre ele
+    document.getElementById('noButton').addEventListener('mouseover', function() {
+        moveButtonRandomly();
     });
 });
