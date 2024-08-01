@@ -28,16 +28,27 @@ document.getElementById('noButton').addEventListener('mouseover', function() {
     moveButtonRandomly();
 });
 
-function moveButtonRandomly() {
-    const noButton = document.getElementById('noButton');
-    const body = document.body;
+document.addEventListener("DOMContentLoaded", function() {
+    function moveButtonRandomly() {
+        const noButton = document.getElementById('noButton');
+        const body = document.body;
 
-    const maxX = body.clientWidth - noButton.offsetWidth;
-    const maxY = body.clientHeight - noButton.offsetHeight;
+        // Obter as dimensões da tela
+        const maxX = body.clientWidth - noButton.offsetWidth;
+        const maxY = body.clientHeight - noButton.offsetHeight;
 
-    const randomX = Math.floor(Math.random() * maxX);
-    const randomY = Math.floor(Math.random() * maxY);
+        // Gerar posição aleatória
+        const randomX = Math.floor(Math.random() * maxX);
+        const randomY = Math.floor(Math.random() * maxY);
 
-    noButton.style.left = randomX + 'px';
-    noButton.style.top = randomY + 'px';
-}
+        // Atualizar a posição do botão
+        noButton.style.left = randomX + 'px';
+        noButton.style.top = randomY + 'px';
+    }
+
+    moveButtonRandomly(); // Mover o botão ao carregar a página
+
+    window.addEventListener('resize', function() {
+        setTimeout(moveButtonRandomly, 100); // Adiciona um pequeno atraso para garantir que o botão se ajuste após o redimensionamento
+    });
+});
